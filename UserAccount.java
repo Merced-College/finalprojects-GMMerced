@@ -11,7 +11,14 @@ public class UserAccount {
 
     public void addTransaction(Transaction t) {
         transactions.add(t);
-        // Note: The math logic to update totalBalance will be added in soon
+
+        double amount = t.getAmount();
+        if (t instanceof Expense) {
+            totalBalance -= amount;
+        } else {
+            totalBalance += amount;
+        }
+        
     }
 
     public double getTotalBalance() {
