@@ -1,3 +1,4 @@
+/* Author: Goutham Mahesh | Inherits from Transaction, tracks money earned */
 public class Income extends Transaction {
     private String source;
 
@@ -6,7 +7,8 @@ public class Income extends Transaction {
         this.source = source;
     }
 
-    public String getSource() {
-        return source;
-    }
+    @Override
+    public String toFileString() { return "I," + amount + "," + date + "," + note + "," + source; }
+    @Override
+    public String toString() { return "[INCOME] " + super.toString() + " | Src: " + source; }
 }
